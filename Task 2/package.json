@@ -1,0 +1,29 @@
+{
+    "name": "epam_js_prac_irina_andreeva",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build": "./node_modules/.bin/webpack",
+        "dev": "./node_modules/.bin/webpack --watch"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Macr0pyre/EPAM_JS_Prac_Irina_Andreeva.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Macr0pyre/EPAM_JS_Prac_Irina_Andreeva/issues"
+    },
+    "homepage": "https://github.com/Macr0pyre/EPAM_JS_Prac_Irina_Andreeva#readme",
+    "devDependencies": {
+        "css-loader": "^5.2.6",
+        "mini-css-extract-plugin": "^1.6.2",
+        "sass": "^1.35.1",
+        "sass-loader": "^12.1.0",
+        "style-loader": "^3.0.0",
+        "webpack": "^5.41.1",
+        "webpack-cli": "^4.7.2"
+    }
+}
