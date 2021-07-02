@@ -7,11 +7,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task 1</title>
     <link rel="stylesheet" href="dist/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-    <h1>Hello world</h1>
-    <script src="dist/bundle.js"></script>
+    <div class="page">
+        <div id="AllVoices" class="mode">
+            <h1>Active: all voices</h1>
+        </div>
+
+        <div id="Microphone" class="mode">
+            <h1>Active: speaker-mode</h1>
+        </div>
+
+        <div id="Stream" class="mode">
+            <h1>Active: stream-mode</h1>
+        </div>
+
+        <div class="navBar">
+            <button id="AllVoicesButton" class="navButton active">
+                <i class="fa fa-bars"></i>
+                All voices
+            </button>
+
+            <button id="MicrophoneButton" class="navButton">
+                <i class="fa fa-microphone"></i>
+                Microphone
+            </button>
+
+            <button id="StreamButton" class="navButton">
+                <i class="fa fa-volume-up"></i>
+                Stream
+            </button>
+        </div>
+    </div>
+
+    <script src="./dist/bundle.js"></script>
 </body>
 
 </html>

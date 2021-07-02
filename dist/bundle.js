@@ -26,7 +26,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_index_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/index.scss */ \"./src/styles/index.scss\");\n\n\n//# sourceURL=webpack://epam_js_prac_irina_andreeva/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_index_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/index.scss */ \"./src/styles/index.scss\");\n\r\n\r\nfunction DoNotDisplayModeText() {\r\n    for (let i = 0; i < modeText.length; i++) {\r\n        modeText[i].style.display = \"none\";\r\n    }\r\n}\r\n\r\nlet modeText = document.getElementsByClassName(\"mode\");\r\n\r\nDoNotDisplayModeText();\r\n\r\ndocument.getElementById(\"AllVoices\").style.display = \"block\";\r\n\r\nlet buttons = document.getElementsByClassName(\"navButton\");\r\n\r\nfor (let i = 0; i < buttons.length; i++) {\r\n    buttons[i].addEventListener(\"click\", function() {\r\n        DoNotDisplayModeText();\r\n\r\n        let current = document.getElementsByClassName(\"active\");\r\n        current[0].className = current[0].className.replace(\" active\", \"\");\r\n        this.className += \" active\";\r\n\r\n        let mode = document.getElementById(this.id.replace(\"Button\", \"\"));\r\n        mode.style.display = \"block\";\r\n    });\r\n}\n\n//# sourceURL=webpack://epam_js_prac_irina_andreeva/./src/index.js?");
 
 /***/ })
 
