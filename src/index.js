@@ -1,4 +1,19 @@
 import './styles/index.scss';
+import { showAllVoicesPage } from './scripts/allVoices';
+import { showMicrophonePage } from './scripts/Microphone';
+import { showStreamPage } from './scripts/stream';
+
+const allVoicesButton = document.getElementById("AllVoicesButton");
+const microphoneButton = document.getElementById("MicrophoneButton");
+const streamButton = document.getElementById("StreamButton");
+
+const modeText = document.getElementsByClassName("mode");
+
+function ActivateButton(element) {
+    let current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    element.className += " active";
+}
 
 function DoNotDisplayModeText() {
     for (let i = 0; i < modeText.length; i++) {
@@ -6,23 +21,25 @@ function DoNotDisplayModeText() {
     }
 }
 
-let modeText = document.getElementsByClassName("mode");
-
+//Initial page in all voices mode
+//All other modes are disabled
 DoNotDisplayModeText();
+showAllVoicesPage();
 
-document.getElementById("AllVoices").style.display = "block";
+allVoicesButton.addEventListener("click", function() {
+    ActivateButton(this);
+    DoNotDisplayModeText();
+    showAllVoicesPage();
+});
 
-let buttons = document.getElementsByClassName("navButton");
+microphoneButton.addEventListener("click", function() {
+    ActivateButton(this);
+    DoNotDisplayModeText();
+    showMicrophonePage();
+});
 
-for (let i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener("click", function() {
-        DoNotDisplayModeText();
-
-        let current = document.getElementsByClassName("active");
-        current[0].className = current[0].className.replace(" active", "");
-        this.className += " active";
-
-        let mode = document.getElementById(this.id.replace("Button", ""));
-        mode.style.display = "block";
-    });
-}
+streamButton.addEventListener("click", function() {
+    ActivateButton(this);
+    DoNotDisplayModeText();
+    showStreamPage();
+});

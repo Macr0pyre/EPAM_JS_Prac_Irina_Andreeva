@@ -19,6 +19,7 @@
     "homepage": "https://github.com/Macr0pyre/EPAM_JS_Prac_Irina_Andreeva#readme",
     "devDependencies": {
         "css-loader": "^5.2.6",
+        "html-webpack-plugin": "^5.3.2",
         "mini-css-extract-plugin": "^1.6.2",
         "sass": "^1.35.1",
         "sass-loader": "^12.1.0",
