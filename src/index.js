@@ -1,45 +1,49 @@
 import './styles/index.scss';
-import { showAllVoicesPage } from './scripts/allVoices';
-import { showMicrophonePage } from './scripts/Microphone';
-import { showStreamPage } from './scripts/stream';
+// import { showAllVoicesPage } from './scripts/allVoices';
+// import { showMicrophonePage } from './scripts/Microphone';
+// import { showStreamPage } from './scripts/stream';
+
+const allVoices = document.getElementById("AllVoices");
+const microphone = document.getElementById("Microphone");
+const stream = document.getElementById("Stream");
 
 const allVoicesButton = document.getElementById("AllVoicesButton");
 const microphoneButton = document.getElementById("MicrophoneButton");
 const streamButton = document.getElementById("StreamButton");
 
-const modeText = document.getElementsByClassName("mode");
-
-function ActivateButton(element) {
-    let current = document.getElementsByClassName("active");
-    current[0].className = current[0].className.replace(" active", "");
-    element.className += " active";
+function Activate(element, className) {
+    let current = document.getElementsByClassName(className);
+    current[0].classList.toggle(className);
+    element.classList.toggle(className);
 }
 
-function DoNotDisplayModeText() {
-    for (let i = 0; i < modeText.length; i++) {
-        modeText[i].style.display = "none";
+class NavBar {
+    constructor(elem) {
+        this._elem = elem;
+        elem.onclick = this.onClick.bind(this);
+    }
+
+    showAllVoicesPage() {
+        Activate(allVoicesButton, 'activeButton');
+        Activate(allVoices, 'displayedMode');
+    }
+
+    showMicrophonePage() {
+        Activate(microphoneButton, 'activeButton');
+        Activate(microphone, 'displayedMode');
+    }
+
+    showStreamPage() {
+        Activate(streamButton, 'activeButton');
+        Activate(stream, 'displayedMode');
+    }
+
+    onClick(event) {
+        let action = event.target.dataset.action;
+        if (action) {
+            this[action]();
+        }
     }
 }
 
-//Initial page in all voices mode
-//All other modes are disabled
-DoNotDisplayModeText();
-showAllVoicesPage();
-
-allVoicesButton.addEventListener("click", function() {
-    ActivateButton(this);
-    DoNotDisplayModeText();
-    showAllVoicesPage();
-});
-
-microphoneButton.addEventListener("click", function() {
-    ActivateButton(this);
-    DoNotDisplayModeText();
-    showMicrophonePage();
-});
-
-streamButton.addEventListener("click", function() {
-    ActivateButton(this);
-    DoNotDisplayModeText();
-    showStreamPage();
-});
+new NavBar(navBar);

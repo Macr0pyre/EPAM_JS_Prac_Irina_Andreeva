@@ -11,7 +11,7 @@
 
 <body>
     <div class="page">
-        <div id="AllVoices" class="mode">
+        <div id="AllVoices" class="mode displayedMode">
             <h1>Active: all voices</h1>
         </div>
 
@@ -23,18 +23,18 @@
             <h1>Active: stream-mode</h1>
         </div>
 
-        <div class="navBar">
-            <button id="AllVoicesButton" class="navButton active">
+        <div class="navBar" id="navBar">
+            <button data-action="showAllVoicesPage" id="AllVoicesButton" class="navButton activeButton">
                 <i class="fa fa-bars"></i>
                 All voices
             </button>
 
-            <button id="MicrophoneButton" class="navButton">
+            <button data-action="showMicrophonePage" id="MicrophoneButton" class="navButton">
                 <i class="fa fa-microphone"></i>
                 Microphone
             </button>
 
-            <button id="StreamButton" class="navButton">
+            <button data-action="showStreamPage" id="StreamButton" class="navButton">
                 <i class="fa fa-volume-up"></i>
                 Stream
             </button>

@@ -26,37 +26,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_index_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/index.scss */ \"./src/styles/index.scss\");\n/* harmony import */ var _scripts_allVoices__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./scripts/allVoices */ \"./src/scripts/allVoices.js\");\n/* harmony import */ var _scripts_Microphone__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./scripts/Microphone */ \"./src/scripts/Microphone.js\");\n/* harmony import */ var _scripts_stream__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./scripts/stream */ \"./src/scripts/stream.js\");\n\r\n\r\n\r\n\r\n\r\nconst allVoicesButton = document.getElementById(\"AllVoicesButton\");\r\nconst microphoneButton = document.getElementById(\"MicrophoneButton\");\r\nconst streamButton = document.getElementById(\"StreamButton\");\r\n\r\nconst modeText = document.getElementsByClassName(\"mode\");\r\n\r\nfunction ActivateButton(element) {\r\n    let current = document.getElementsByClassName(\"active\");\r\n    current[0].className = current[0].className.replace(\" active\", \"\");\r\n    element.className += \" active\";\r\n}\r\n\r\nfunction DoNotDisplayModeText() {\r\n    for (let i = 0; i < modeText.length; i++) {\r\n        modeText[i].style.display = \"none\";\r\n    }\r\n}\r\n\r\n//Initial page in all voices mode\r\n//All other modes are disabled\r\nDoNotDisplayModeText();\r\n(0,_scripts_allVoices__WEBPACK_IMPORTED_MODULE_1__.showAllVoicesPage)();\r\n\r\nallVoicesButton.addEventListener(\"click\", function() {\r\n    ActivateButton(this);\r\n    DoNotDisplayModeText();\r\n    (0,_scripts_allVoices__WEBPACK_IMPORTED_MODULE_1__.showAllVoicesPage)();\r\n});\r\n\r\nmicrophoneButton.addEventListener(\"click\", function() {\r\n    ActivateButton(this);\r\n    DoNotDisplayModeText();\r\n    (0,_scripts_Microphone__WEBPACK_IMPORTED_MODULE_2__.showMicrophonePage)();\r\n});\r\n\r\nstreamButton.addEventListener(\"click\", function() {\r\n    ActivateButton(this);\r\n    DoNotDisplayModeText();\r\n    (0,_scripts_stream__WEBPACK_IMPORTED_MODULE_3__.showStreamPage)();\r\n});\n\n//# sourceURL=webpack://epam_js_prac_irina_andreeva/./src/index.js?");
-
-/***/ }),
-
-/***/ "./src/scripts/Microphone.js":
-/*!***********************************!*\
-  !*** ./src/scripts/Microphone.js ***!
-  \***********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"showMicrophonePage\": () => (/* binding */ showMicrophonePage)\n/* harmony export */ });\nconst microphone = document.getElementById(\"Microphone\");\r\n\r\nfunction showMicrophonePage() {\r\n    microphone.style.display = \"block\";\r\n}\n\n//# sourceURL=webpack://epam_js_prac_irina_andreeva/./src/scripts/Microphone.js?");
-
-/***/ }),
-
-/***/ "./src/scripts/allVoices.js":
-/*!**********************************!*\
-  !*** ./src/scripts/allVoices.js ***!
-  \**********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"showAllVoicesPage\": () => (/* binding */ showAllVoicesPage)\n/* harmony export */ });\nconst allVoices = document.getElementById(\"AllVoices\");\r\n\r\nfunction showAllVoicesPage() {\r\n    allVoices.style.display = \"block\";\r\n}\n\n//# sourceURL=webpack://epam_js_prac_irina_andreeva/./src/scripts/allVoices.js?");
-
-/***/ }),
-
-/***/ "./src/scripts/stream.js":
-/*!*******************************!*\
-  !*** ./src/scripts/stream.js ***!
-  \*******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"showStreamPage\": () => (/* binding */ showStreamPage)\n/* harmony export */ });\nconst stream = document.getElementById(\"Stream\");\r\n\r\nfunction showStreamPage() {\r\n    stream.style.display = \"block\";\r\n}\n\n//# sourceURL=webpack://epam_js_prac_irina_andreeva/./src/scripts/stream.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_index_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/index.scss */ \"./src/styles/index.scss\");\n\r\n// import { showAllVoicesPage } from './scripts/allVoices';\r\n// import { showMicrophonePage } from './scripts/Microphone';\r\n// import { showStreamPage } from './scripts/stream';\r\n\r\nconst allVoices = document.getElementById(\"AllVoices\");\r\nconst microphone = document.getElementById(\"Microphone\");\r\nconst stream = document.getElementById(\"Stream\");\r\n\r\nconst allVoicesButton = document.getElementById(\"AllVoicesButton\");\r\nconst microphoneButton = document.getElementById(\"MicrophoneButton\");\r\nconst streamButton = document.getElementById(\"StreamButton\");\r\n\r\nfunction Activate(element, className) {\r\n    let current = document.getElementsByClassName(className);\r\n    current[0].classList.toggle(className);\r\n    element.classList.toggle(className);\r\n}\r\n\r\nclass NavBar {\r\n    constructor(elem) {\r\n        this._elem = elem;\r\n        elem.onclick = this.onClick.bind(this);\r\n    }\r\n\r\n    showAllVoicesPage() {\r\n        Activate(allVoicesButton, 'activeButton');\r\n        Activate(allVoices, 'displayedMode');\r\n    }\r\n\r\n    showMicrophonePage() {\r\n        Activate(microphoneButton, 'activeButton');\r\n        Activate(microphone, 'displayedMode');\r\n    }\r\n\r\n    showStreamPage() {\r\n        Activate(streamButton, 'activeButton');\r\n        Activate(stream, 'displayedMode');\r\n    }\r\n\r\n    onClick(event) {\r\n        let action = event.target.dataset.action;\r\n        if (action) {\r\n            this[action]();\r\n        }\r\n    }\r\n}\r\n\r\nnew NavBar(navBar);\n\n//# sourceURL=webpack://epam_js_prac_irina_andreeva/./src/index.js?");
 
 /***/ })
 
@@ -87,23 +57,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	}
 /******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/define property getters */
-/******/ 	(() => {
-/******/ 		// define getter functions for harmony exports
-/******/ 		__webpack_require__.d = (exports, definition) => {
-/******/ 			for(var key in definition) {
-/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
-/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
-/******/ 				}
-/******/ 			}
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
-/******/ 	(() => {
-/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
