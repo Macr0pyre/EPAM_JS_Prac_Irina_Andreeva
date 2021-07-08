@@ -1,7 +1,7 @@
 import './styles/index.scss';
-// import { showAllVoicesPage } from './scripts/allVoices';
-// import { showMicrophonePage } from './scripts/Microphone';
-// import { showStreamPage } from './scripts/stream';
+import { getVoices } from './scripts/allVoices';
+import { handleMicro } from './scripts/microphone';
+import { streamOn } from './scripts/stream';
 
 const allVoices = document.getElementById("AllVoices");
 const microphone = document.getElementById("Microphone");
@@ -11,7 +11,9 @@ const allVoicesButton = document.getElementById("AllVoicesButton");
 const microphoneButton = document.getElementById("MicrophoneButton");
 const streamButton = document.getElementById("StreamButton");
 
-function Activate(element, className) {
+const recordButton = document.getElementById('recordCircleBut');
+
+function activate(element, className) {
     let current = document.getElementsByClassName(className);
     current[0].classList.toggle(className);
     element.classList.toggle(className);
@@ -24,18 +26,23 @@ class NavBar {
     }
 
     showAllVoicesPage() {
-        Activate(allVoicesButton, 'activeButton');
-        Activate(allVoices, 'displayedMode');
+        activate(allVoicesButton, 'activeButton');
+        getVoices();
+        activate(allVoices, 'displayedMode');
     }
 
     showMicrophonePage() {
-        Activate(microphoneButton, 'activeButton');
-        Activate(microphone, 'displayedMode');
+        activate(microphoneButton, 'activeButton');
+        activate(microphone, 'displayedMode');
+        recordButton.addEventListener("click", function() {
+            handleMicro();
+        });
     }
 
     showStreamPage() {
-        Activate(streamButton, 'activeButton');
-        Activate(stream, 'displayedMode');
+        activate(streamButton, 'activeButton');
+        activate(stream, 'displayedMode');
+        streamOn();
     }
 
     onClick(event) {
@@ -46,4 +53,5 @@ class NavBar {
     }
 }
 
+getVoices();
 new NavBar(navBar);
