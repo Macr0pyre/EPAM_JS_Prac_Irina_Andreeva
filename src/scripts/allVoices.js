@@ -1,9 +1,14 @@
 const voicesList = document.getElementById('voicesList');
 
-export async function getVoices() {
+export async function getAudio() {
+    let response = await fetch('https://voicy-speaker.herokuapp.com/voices');
+    let data = await response.json();
+
+    return data;
+}
+
+export function printAudio(data) {
     voicesList.innerHTML = "";
-    const response = await fetch('https://voicy-speaker.herokuapp.com/voices');
-    const data = await response.json();
     let i = data.length >= 5 ? data.length - 5 : 0;
 
     for (i; i < data.length; i++) {
